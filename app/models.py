@@ -4,7 +4,7 @@ class Cidade(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome da cidade")
     uf = models.CharField(max_length=2, verbose_name="UF")
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.nome} - {self.uf}"
 
     class Meta:
@@ -18,7 +18,7 @@ class Autor(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do autor")
     cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, verbose_name="Cidade do autor")
 
-    def _str_(self):
+    def __str__(self):
         return self.nome
 
     class Meta:
@@ -31,7 +31,7 @@ class Editora(models.Model):
     site = models.CharField(max_length=100, verbose_name="Site da editora")
     cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE, verbose_name="Cidade da editora")
 
-    def _str_(self):
+    def __str__(self):
         return self.nome
 
     class Meta:
@@ -44,7 +44,7 @@ class Leitor(models.Model):
     email = models.EmailField(max_length=100, verbose_name="Email do leitor") # Usando EmailField por boa prática
     cpf = models.CharField(max_length=11, unique=True, verbose_name="CPF do leitor")
 
-    def _str_(self):
+    def __str__(self):
         return self.nome
 
     class Meta:
@@ -55,7 +55,7 @@ class Leitor(models.Model):
 class Genero(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Gênero")
 
-    def _str_(self):
+    def __str__(self):
         return self.nome
 
     class Meta:
@@ -72,7 +72,7 @@ class Livro(models.Model):
     data_pub = models.DateField(verbose_name="Data de publicação do livro") 
     status = models.BooleanField(default=True, verbose_name="Disponível")
 
-    def _str_(self):
+    def __str__(self):
         return f'{self.nome} ({self.autor})'
 
     class Meta:

@@ -43,7 +43,7 @@
                     <td>{{ livro.editora }}</td>
                     <td>{{ livro.genero }}</td>
                     <td>R$ {{ livro.preco }}</td>
-                    <td>{{ livro.data_publicacao }}</td>
+                    <td>{{ livro.data_pub|date:"d/m/Y" }}</td>
                     <td>{{ livro.status }}</td>
                 </tr>
                 {% endfor %}
